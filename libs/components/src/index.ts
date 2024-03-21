@@ -25,6 +25,7 @@ export * from './lib/RangeCalendar';
 export * from './lib/SearchField';
 export * from './lib/Select';
 export * from './lib/Separator';
+export * from './lib/Sheet';
 export * from './lib/Slider';
 export * from './lib/Switch';
 export * from './lib/Table';

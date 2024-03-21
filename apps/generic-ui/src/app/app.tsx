@@ -1,5 +1,5 @@
 import { Heading, Text } from 'react-aria-components';
-import { Button } from '@generic/components';
+import { Button, Sheet } from '@generic/components';
 
 export function App() {
   return (
@@ -9,6 +9,10 @@ export function App() {
           Save
         </Button>
       </Billboard>
+      <Sheet>aldskfjadslfjdsalfadslfj</Sheet>
+      <Sheet color="destructive">aldskfjadslfjdsalfadslfj</Sheet>
+      <Sheet color="success">aldskfjadslfjdsalfadslfj</Sheet>
+      <Sheet color="secondary">aldskfjadslfjdsalfadslfj</Sheet>
       <Heading level={1}>Hello, world!</Heading>
       <Text>Some text</Text>
     </div>
