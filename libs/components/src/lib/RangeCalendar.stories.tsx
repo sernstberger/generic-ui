@@ -1,13 +1,13 @@
 import type { Meta } from '@storybook/react';
 import React from 'react';
-import { RangeCalendar } from '../src/RangeCalendar';
+import { RangeCalendar } from './RangeCalendar';
 
 const meta: Meta<typeof RangeCalendar> = {
   component: RangeCalendar,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
-  tags: ['autodocs']
+  tags: ['autodocs'],
 };
 
 export default meta;

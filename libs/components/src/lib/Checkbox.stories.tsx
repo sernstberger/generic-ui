@@ -1,4 +1,4 @@
-import { Checkbox } from '../src/Checkbox';
+import { Checkbox } from './Checkbox';
 
 export default {
   title: 'Checkbox',
@@ -10,8 +10,8 @@ export default {
   argTypes: {},
   args: {
     isDisabled: false,
-    children: 'Checkbox'
-  }
+    children: 'Checkbox',
+  },
 };
 
 export const Default = {

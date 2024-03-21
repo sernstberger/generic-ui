@@ -1,11 +1,11 @@
 import type { Meta } from '@storybook/react';
 import React from 'react';
-import { Tag, TagGroup } from '../src/TagGroup';
+import { Tag, TagGroup } from './TagGroup';
 
 const meta: Meta<typeof Example> = {
   component: TagGroup,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
 };
@@ -23,5 +23,5 @@ export const Example = (args: any) => (
 
 Example.args = {
   label: 'Ice cream flavor',
-  selectionMode: 'single'
+  selectionMode: 'single',
 };

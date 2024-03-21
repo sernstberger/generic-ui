@@ -1,4 +1,4 @@
-import { Button } from '../src/Button';
+import { Button } from './Button';
 
 export default {
   title: 'Button',
@@ -10,29 +10,29 @@ export default {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'destructive']
-    }
+      options: ['primary', 'secondary', 'destructive'],
+    },
   },
   args: {
     isDisabled: false,
-    children: 'Button'
-  }
+    children: 'Button',
+  },
 };
 
 export const Primary = {
   args: {
-    variant: 'primary'
+    variant: 'primary',
   },
 };
 
 export const Secondary = {
   args: {
-    variant: 'secondary'
+    variant: 'secondary',
   },
 };
 
 export const Destructive = {
   args: {
-    variant: 'destructive'
+    variant: 'destructive',
   },
 };
