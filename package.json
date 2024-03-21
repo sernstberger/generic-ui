@@ -6,7 +6,9 @@
   "private": true,
   "dependencies": {
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-aria-components": "^1.1.1",
+    "react-dom": "18.2.0",
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
     "@nx/cypress": "18.1.2",
