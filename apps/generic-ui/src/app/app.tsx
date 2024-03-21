@@ -1,11 +1,11 @@
 import { Heading, Text } from 'react-aria-components';
-import { Button } from './Button';
+import { Button } from '@generic/components';
 
 export function App() {
   return (
     <div>
       <Billboard>
-        <Button variant="destructive" onPress={() => alert('Hello world!')}>
+        <Button variant="primary" onPress={() => alert('Hello world!')}>
           Save
         </Button>
       </Billboard>
