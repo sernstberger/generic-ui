@@ -1,96 +1,66 @@
 import { Heading, Text } from 'react-aria-components';
-import { Button, Sheet } from '@generic/components';
+import { Button } from '@generic/components';
+import { View, Grid } from '@adobe/react-spectrum';
+
+import { defaultTheme, Provider } from '@adobe/react-spectrum';
+import { useNavigate } from 'react-router-dom';
 
 export function App() {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <Billboard>foooooooobar</Billboard>
-
-      <Heading level={1}>Plain</Heading>
-      <Button color="primary" variant="plain">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="neutral" variant="plain">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="destructive" variant="plain">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="success" variant="plain">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="warning" variant="plain">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-
-      <br />
-
-      <Heading level={1}>Outlined</Heading>
-      <Button color="primary" variant="outlined">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="neutral" variant="outlined">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="destructive" variant="outlined">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="success" variant="outlined">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="warning" variant="outlined">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-
-      <br />
-
-      <Heading level={1}>Soft</Heading>
-      <Button color="primary" variant="soft">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="neutral" variant="soft">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="destructive" variant="soft">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="success" variant="soft">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="warning" variant="soft">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-
-      <br />
-
-      <Heading level={1}>Solid</Heading>
-      <Button color="primary" variant="solid">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="neutral" variant="solid">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="destructive" variant="solid">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="success" variant="solid">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-      <Button color="warning" variant="solid">
-        aldskfjadslfjdsalfadslfj
-      </Button>
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <hr />
-
-      <Text>Some text</Text>
-    </div>
+    <Provider theme={defaultTheme} colorScheme="light" router={{ navigate }}>
+      <Grid
+        areas={['header  header', 'sidebar content', 'footer  footer']}
+        // columns={['1fr', '3fr']}
+        columns={[240, '3fr']}
+        rows={['size-1000', 'auto', 'size-1000']}
+        height="100vh"
+        gap="size-100"
+      >
+        <View backgroundColor="celery-600" gridArea="header" />
+        <View backgroundColor="blue-600" gridArea="sidebar" />
+        <View gridArea="content">
+          <Billboard>
+            <div>Avatar</div>
+            <Button>
+              <div>heart icon</div>
+              Save
+            </Button>
+          </Billboard>
+          <div>
+            <Heading level={1}>Starbucks</Heading>
+            <div>Search box</div>
+          </div>
+          <div>
+            <Button>Group order</Button>
+            <div>
+              <div>$0.00</div>
+              <div>
+                Delivery fee
+                <span>tooltip</span>
+              </div>
+            </div>
+            <div>divider</div>
+            <div>
+              <p>21 min</p>
+              <p>Delivery time</p>
+            </div>
+          </div>
+          <div>
+            Featured items
+            <div>Carousel</div>
+          </div>
+          <div>
+            Reviews
+            <div>Review Carousel</div>
+          </div>
+          <hr />
+          <Text>Some text</Text>
+        </View>
+        <View backgroundColor="magenta-600" gridArea="footer" />
+      </Grid>
+    </Provider>
   );
 }
 
