@@ -11,53 +11,55 @@ export interface ButtonProps extends RACButtonProps {
   color?: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning';
 }
 
-function createPlainVariant(
-  color: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning',
-  bgColor: any,
-  textColor: any
-): any {
-  return {
-    variant: 'plain',
-    color: color,
-    class: `${bgColor} ${textColor}`,
-  };
+interface Variant {
+  variant: 'solid' | 'soft' | 'outlined' | 'plain';
+  color: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning';
+  class: string;
 }
 
-function createOutlinedVariant(
-  color: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning',
-  borderColor: any,
-  textColor: any
-): any {
+const createVariant = (
+  variant: Variant['variant'],
+  color: Variant['color'],
+  bgColor: string,
+  textColor: string
+): Variant => {
   return {
-    variant: 'outlined',
-    color: color,
-    class: `${borderColor} ${textColor}`,
-  };
-}
-
-function createSoftVariant(
-  color: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning',
-  bgColor: any,
-  textColor: any
-): any {
-  return {
-    variant: 'soft',
-    color: color,
+    variant,
+    color,
     class: `${bgColor} ${textColor}`,
   };
-}
+};
 
-function createSolidVariant(
-  color: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning',
-  bgColor: any,
-  textColor: any
-): any {
-  return {
-    variant: 'solid',
-    color: color,
-    class: `${bgColor} ${textColor}`,
-  };
-}
+const createPlainVariant = (
+  color: Variant['color'],
+  bgColor: string,
+  textColor: string
+): Variant => {
+  return createVariant('plain', color, bgColor, textColor);
+};
+
+const createOutlinedVariant = (
+  color: Variant['color'],
+  bgColor: string,
+  textColor: string
+): Variant => {
+  return createVariant('outlined', color, bgColor, textColor);
+};
+
+const createSoftVariant = (
+  color: Variant['color'],
+  bgColor: string,
+  textColor: string
+): Variant => {
+  return createVariant('soft', color, bgColor, textColor);
+};
+
+const createSolidVariant = (
+  color: Variant['color'],
+  bgColor: string
+): Variant => {
+  return createVariant('solid', color, bgColor, 'text-white');
+};
 
 const sheet = tv({
   base: 'p-2',
@@ -71,7 +73,6 @@ const sheet = tv({
       warning: '',
     },
     variant: {
-      // plain: 'bg-transparent',
       plain: '',
       outlined: 'border',
       soft: '',
@@ -84,11 +85,11 @@ const sheet = tv({
   },
 
   compoundVariants: [
-    createPlainVariant('primary', 'bg-blue-50', 'text-blue-600'),
-    createPlainVariant('neutral', 'bg-gray-50', 'text-gray-600'),
-    createPlainVariant('destructive', 'bg-red-50', 'text-red-600'),
-    createPlainVariant('success', 'bg-green-50', 'text-green-600'),
-    createPlainVariant('warning', 'bg-yellow-50', 'text-yellow-600'),
+    createPlainVariant('primary', 'bg-transparent', 'text-blue-600'),
+    createPlainVariant('neutral', 'bg-transparent', 'text-gray-600'),
+    createPlainVariant('destructive', 'bg-transparent', 'text-red-600'),
+    createPlainVariant('success', 'bg-transparent', 'text-green-600'),
+    createPlainVariant('warning', 'bg-transparent', 'text-yellow-600'),
 
     createOutlinedVariant('primary', 'border-blue-600', 'text-blue-600'),
     createOutlinedVariant('neutral', 'border-gray-600', 'text-gray-600'),
@@ -102,11 +103,11 @@ const sheet = tv({
     createSoftVariant('success', 'bg-green-100', 'text-green-900'),
     createSoftVariant('warning', 'bg-yellow-100', 'text-yellow-900'),
 
-    createSolidVariant('primary', 'bg-blue-600', 'text-blue-900'),
-    createSolidVariant('neutral', 'bg-gray-600', 'text-gray-900'),
-    createSolidVariant('destructive', 'bg-red-600', 'text-red-900'),
-    createSolidVariant('success', 'bg-green-600', 'text-green-900'),
-    createSolidVariant('warning', 'bg-yellow-600', 'text-yellow-900'),
+    createSolidVariant('primary', 'bg-blue-600'),
+    createSolidVariant('neutral', 'bg-gray-600'),
+    createSolidVariant('destructive', 'bg-red-600'),
+    createSolidVariant('success', 'bg-green-600'),
+    createSolidVariant('warning', 'bg-yellow-600'),
   ],
 });
 
