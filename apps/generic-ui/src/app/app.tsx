@@ -1,6 +1,7 @@
 import { Heading, Text } from 'react-aria-components';
 import { Button } from '@generic/components';
 import { View, Grid } from '@adobe/react-spectrum';
+import { Heart } from 'lucide-react';
 
 import { defaultTheme, Provider } from '@adobe/react-spectrum';
 import { useNavigate } from 'react-router-dom';
@@ -23,10 +24,7 @@ export function App() {
         <View gridArea="content">
           <Billboard>
             <div>Avatar</div>
-            <Button>
-              <div>heart icon</div>
-              Save
-            </Button>
+            <Button startIcon={<Heart />}>Save</Button>
           </Billboard>
           <div>
             <Heading level={1}>Starbucks</Heading>
