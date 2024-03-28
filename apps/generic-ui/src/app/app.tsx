@@ -1,5 +1,5 @@
 import { Heading, Text } from 'react-aria-components';
-import { Button } from '@generic/components';
+import { Button, SearchField } from '@generic/components';
 import { View, Grid } from '@adobe/react-spectrum';
 import { Heart } from 'lucide-react';
 
@@ -28,7 +28,7 @@ export function App() {
           </Billboard>
           <div>
             <Heading level={1}>Starbucks</Heading>
-            <div>Search box</div>
+            <SearchField />
           </div>
           <div>
             <Button>Group order</Button>
@@ -55,6 +55,19 @@ export function App() {
           </div>
           <hr />
           <Text>Some text</Text>
+
+          <div className="border p-2">
+            <div>
+              image
+              <div>plusIcon</div>
+            </div>
+            <Text>Sausage, Cheddar & Egg Sandwich</Text>
+            <Text>
+              A savory sausage patty, fluffy cage-free eggs and aged Cheddar
+              cheese on a perfectly toasted English muffin. -HIGH-PROTEIN
+            </Text>
+            <Text>$4.95</Text>
+          </div>
         </View>
         <View backgroundColor="magenta-600" gridArea="footer" />
       </Grid>
