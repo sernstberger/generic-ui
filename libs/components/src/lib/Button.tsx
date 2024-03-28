@@ -19,7 +19,7 @@ const button = tv({
   extend: focusRing,
   base: twMerge(
     sheet.base,
-    'px-5 py-2 text-sm text-center transition rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] dark:shadow-none cursor-default flex'
+    'px-5 py-2 text-sm text-center items-center transition rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] dark:shadow-none cursor-default flex'
     // 'px-5 py-2 text-sm text-center transition rounded-lg border border-black/10 dark:border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] dark:shadow-none cursor-default'
   ),
   variants: {
@@ -61,7 +61,14 @@ export function Button(props: ButtonProps) {
         })
       )}
     >
-      {props.startIcon}
+      {/* {props.startIcon && <span className="h-2 w-2">{props.startIcon}</span>} */}
+      {React.isValidElement(props.startIcon) && (
+        <>
+          {React.cloneElement(props.startIcon as React.ReactElement<any>, {
+            className: `${button.variants.startIcon} h-4 w-4`,
+          })}
+        </>
+      )}
       {props.children}
     </RACButton>
   );
