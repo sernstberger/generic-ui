@@ -56,18 +56,12 @@ export function App() {
           <hr />
           <Text>Some text</Text>
 
-          <div className="border p-2">
-            <div>
-              image
-              <div>plusIcon</div>
-            </div>
-            <Text>Sausage, Cheddar & Egg Sandwich</Text>
-            <Text>
-              A savory sausage patty, fluffy cage-free eggs and aged Cheddar
-              cheese on a perfectly toasted English muffin. -HIGH-PROTEIN
-            </Text>
-            <Text>$4.95</Text>
-          </div>
+          <ProductCard
+            image="https://via.placeholder.com/150"
+            title="Sausage, Cheddar & Egg Sandwich"
+            description="A savory sausage patty, fluffy cage-free eggs and aged Cheddar cheese on a perfectly toasted English muffin. -HIGH-PROTEIN"
+            price="$4.95"
+          />
         </View>
         <View backgroundColor="magenta-600" gridArea="footer" />
       </Grid>
@@ -77,6 +71,22 @@ export function App() {
 
 const Billboard = ({ children }: any) => {
   return <div className="flex p-8 bg-slate-500">{children}</div>;
+};
+
+const ProductCard = ({ image, title, description, price }: any) => {
+  return (
+    <div className="border p-2">
+      <div>
+        {/* TODO: Check for what I should use for alt text */}
+        <img src={image} alt={title} />
+
+        <Button>plusIcon</Button>
+      </div>
+      <Text>{title}</Text>
+      <Text>{description}</Text>
+      <Text>{price}</Text>
+    </div>
+  );
 };
 
 export default App;
