@@ -1,5 +1,5 @@
 import { Heading, Text } from 'react-aria-components';
-import { Button, Layout, SearchField } from '@generic/components';
+import { Button, Layout, ProductList, SearchField } from '@generic/components';
 import { View, Grid, repeat } from '@adobe/react-spectrum';
 import { Heart } from 'lucide-react';
 
@@ -97,57 +97,6 @@ export function App() {
 
 const Billboard = ({ children }: any) => {
   return <div className="flex p-8 bg-slate-500">{children}</div>;
-};
-
-interface ProductListProps {
-  title: string;
-  products: ProductCardProps[];
-}
-
-const ProductList = ({ title, products }: ProductListProps) => {
-  return (
-    <div>
-      <Text>{title}</Text>
-      <Grid
-        columns={repeat('auto-fit', 'size-3000')}
-        autoRows="size-3000"
-        justifyContent="center"
-        gap="size-100"
-      >
-        {products.map((product) => {
-          return <ProductCard {...product} key={product.title} />;
-        })}
-      </Grid>
-    </div>
-  );
-};
-
-interface ProductCardProps {
-  image: string;
-  title: string;
-  description: string;
-  price: string;
-}
-
-const ProductCard = ({
-  image,
-  title,
-  description,
-  price,
-}: ProductCardProps) => {
-  return (
-    <div className="border p-2">
-      <div>
-        {/* TODO: Check for what I should use for alt text */}
-        <img src={image} alt={title} />
-
-        <Button>plusIcon</Button>
-      </div>
-      <Text>{title}</Text>
-      <Text>{description}</Text>
-      <Text>{price}</Text>
-    </div>
-  );
 };
 
 export default App;

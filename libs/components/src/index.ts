@@ -20,6 +20,7 @@ export * from './lib/Meter';
 export * from './lib/Modal';
 export * from './lib/NumberField';
 export * from './lib/Popover';
+export * from './lib/ProductList';
 export * from './lib/ProgressBar';
 export * from './lib/RadioGroup';
 export * from './lib/RangeCalendar';
