@@ -1,6 +1,6 @@
 import { Heading, Text } from 'react-aria-components';
 import { Button, SearchField } from '@generic/components';
-import { View, Grid } from '@adobe/react-spectrum';
+import { View, Grid, repeat } from '@adobe/react-spectrum';
 import { Heart } from 'lucide-react';
 
 import { defaultTheme, Provider } from '@adobe/react-spectrum';
@@ -51,15 +51,29 @@ export function App() {
               image: 'https://via.placeholder.com/150',
               title: 'Sausage, Cheddar & Egg Sandwich',
               description:
-                'A savory sausage patty, fluffy cage-free eggs and aged Cheddar cheese on a perfectly toasted English muffin. -HIGH-PROTEIN',
+                'A savory sausage patty, fluffy cage-free eggs and aged Cheddar cheese on a perfectly toasted English muffin.',
               price: '$4.95',
             },
             {
               image: 'https://via.placeholder.com/150',
               title: 'Sausage, Cheddar & Egg Biscuit',
               description:
-                'A savory sausage patty, fluffy eggs and aged Cheddar cheese served on a biscuit. -HIGH-PROTEIN',
+                'A savory sausage patty, fluffy eggs and aged Cheddar cheese served on a biscuit.',
               price: '$3.95',
+            },
+            {
+              image: 'https://via.placeholder.com/150',
+              title: 'Bacon, Gouda & Egg Sandwich',
+              description:
+                'Thick-cut bacon, fluffy eggs and aged Gouda cheese on a perfectly toasted English muffin.',
+              price: '$4.95',
+            },
+            {
+              image: 'https://via.placeholder.com/150',
+              title: 'Double-Smoked Bacon, Cheddar & Egg Sandwich',
+              description:
+                'Thick-cut bacon, fluffy eggs and aged Cheddar cheese on a perfectly toasted English muffin.',
+              price: '$4.95',
             },
           ]}
         />
@@ -81,9 +95,16 @@ const ProductList = ({ title, products }: ProductListProps) => {
   return (
     <div>
       <Text>{title}</Text>
-      {products.map((product) => {
-        return <ProductCard {...product} key={product.title} />;
-      })}
+      <Grid
+        columns={repeat('auto-fit', 'size-3000')}
+        autoRows="size-3000"
+        justifyContent="center"
+        gap="size-100"
+      >
+        {products.map((product) => {
+          return <ProductCard {...product} key={product.title} />;
+        })}
+      </Grid>
     </div>
   );
 };
