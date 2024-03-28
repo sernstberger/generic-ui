@@ -1,12 +1,8 @@
-import {
-  composeRenderProps,
-  Button as RACButton,
-  ButtonProps as RACButtonProps,
-} from 'react-aria-components';
+import { composeRenderProps } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
 // import { focusRing } from './utils';
 
-export interface SheetProps extends RACButtonProps {
+export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: 'plain' | 'outlined' | 'soft' | 'solid';
   color?: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning';
 }
@@ -111,18 +107,17 @@ const sheet = tv({
   ],
 });
 
-export function Sheet(props: SheetProps) {
-  return (
-    <RACButton
-      {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        sheet({
-          ...renderProps,
-          variant: props.variant,
-          color: props.color,
-          className,
-        })
-      )}
-    />
+export function Sheet({ children, className, variant, color }: SheetProps) {
+  const newClassName: any = composeRenderProps(
+    className,
+    (className, renderProps) =>
+      sheet({
+        // ...renderProps,
+        variant: variant,
+        color: color,
+        className,
+      })
   );
+
+  return <div className={newClassName()}>{children}</div>;
 }

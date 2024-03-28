@@ -23,6 +23,7 @@ export const ProductList = ({ title, products }: ProductListProps) => {
           return <ProductCard {...product} key={product.title} />;
         })}
       </Grid>
+      <div>pagination goes here</div>
     </div>
   );
 };
