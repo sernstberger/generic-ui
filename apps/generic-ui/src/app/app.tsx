@@ -75,6 +75,20 @@ export function App() {
                 'Thick-cut bacon, fluffy eggs and aged Cheddar cheese on a perfectly toasted English muffin.',
               price: '$4.95',
             },
+            {
+              image: 'https://via.placeholder.com/150',
+              title: 'Reduced-Fat Turkey Bacon & Cage-Free Egg White Sandwich',
+              description:
+                'Sliced turkey bacon and egg whites with creamy melted cheese on an organic wheat English muffin.',
+              price: '$4.95',
+            },
+            {
+              image: 'https://via.placeholder.com/150',
+              title: 'Sausage & Cheddar Breakfast Sandwich',
+              description:
+                'A savory sausage patty, fluffy eggs and aged Cheddar cheese served on a croissant.',
+              price: '$3.95',
+            },
           ]}
         />
       </Layout>
