@@ -44,13 +44,24 @@ export function App() {
           <div>Review Carousel</div>
         </div>
         <hr />
-        <Text>Some text</Text>
-
-        <ProductCard
-          image="https://via.placeholder.com/150"
-          title="Sausage, Cheddar & Egg Sandwich"
-          description="A savory sausage patty, fluffy cage-free eggs and aged Cheddar cheese on a perfectly toasted English muffin. -HIGH-PROTEIN"
-          price="$4.95"
+        <ProductList
+          title="Some text"
+          products={[
+            {
+              image: 'https://via.placeholder.com/150',
+              title: 'Sausage, Cheddar & Egg Sandwich',
+              description:
+                'A savory sausage patty, fluffy cage-free eggs and aged Cheddar cheese on a perfectly toasted English muffin. -HIGH-PROTEIN',
+              price: '$4.95',
+            },
+            {
+              image: 'https://via.placeholder.com/150',
+              title: 'Sausage, Cheddar & Egg Biscuit',
+              description:
+                'A savory sausage patty, fluffy eggs and aged Cheddar cheese served on a biscuit. -HIGH-PROTEIN',
+              price: '$3.95',
+            },
+          ]}
         />
       </Layout>
     </Provider>
@@ -61,7 +72,35 @@ const Billboard = ({ children }: any) => {
   return <div className="flex p-8 bg-slate-500">{children}</div>;
 };
 
-const ProductCard = ({ image, title, description, price }: any) => {
+interface ProductListProps {
+  title: string;
+  products: ProductCardProps[];
+}
+
+const ProductList = ({ title, products }: ProductListProps) => {
+  return (
+    <div>
+      <Text>{title}</Text>
+      {products.map((product) => {
+        return <ProductCard {...product} key={product.title} />;
+      })}
+    </div>
+  );
+};
+
+interface ProductCardProps {
+  image: string;
+  title: string;
+  description: string;
+  price: string;
+}
+
+const ProductCard = ({
+  image,
+  title,
+  description,
+  price,
+}: ProductCardProps) => {
   return (
     <div className="border p-2">
       <div>
@@ -80,22 +119,66 @@ const ProductCard = ({ image, title, description, price }: any) => {
 const Layout = ({ children }: any) => {
   return (
     <Grid
-      areas={['header  header', 'sidebar content', 'footer  footer']}
-      // columns={['1fr', '3fr']}
+      // areas={['header  header', 'sidebar content', 'footer  footer']}
+      areas={['header  header', 'sidebar content']}
       columns={[240, '3fr']}
-      rows={['size-1000', 'auto', 'size-1000']}
+      // rows={['size-1000', 'auto', 'size-1000']}
+      rows={['size-1000', 'auto']}
       height="100vh"
-      gap="size-100"
     >
-      <View backgroundColor="celery-600" gridArea="header" />
-      <View backgroundColor="blue-600" gridArea="sidebar">
+      <View backgroundColor="gray-50" gridArea="header" />
+      <View backgroundColor="gray-500" gridArea="sidebar" overflow="scroll">
         <ul>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
+          <li>asldkjfasf</li>
+          <li>asldkfjdasf</li>
           <li>asldkjfasf</li>
           <li>asldkfjdasf</li>
         </ul>
       </View>
-      <View gridArea="content">{children}</View>
-      <View backgroundColor="magenta-600" gridArea="footer" />
+      <View gridArea="content" overflow="scroll" backgroundColor="gray-100">
+        {children}
+      </View>
+      {/* <View backgroundColor="magenta-600" gridArea="footer" /> */}
     </Grid>
   );
 };
