@@ -12,6 +12,7 @@ export * from './lib/Field';
 export * from './lib/Form';
 export * from './lib/GridList';
 // export * from './lib/index';
+export * from './lib/Layout';
 export * from './lib/Link';
 export * from './lib/ListBox';
 export * from './lib/Menu';

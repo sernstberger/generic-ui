@@ -6,7 +6,7 @@ import {
 import { tv } from 'tailwind-variants';
 // import { focusRing } from './utils';
 
-export interface ButtonProps extends RACButtonProps {
+export interface SheetProps extends RACButtonProps {
   variant?: 'plain' | 'outlined' | 'soft' | 'solid';
   color?: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning';
 }
@@ -111,7 +111,7 @@ const sheet = tv({
   ],
 });
 
-export function Sheet(props: ButtonProps) {
+export function Sheet(props: SheetProps) {
   return (
     <RACButton
       {...props}
