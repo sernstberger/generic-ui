@@ -6,6 +6,51 @@ import { Heart } from 'lucide-react';
 import { defaultTheme, Provider } from '@adobe/react-spectrum';
 import { useNavigate } from 'react-router-dom';
 
+const products = [
+  {
+    image: 'https://via.placeholder.com/150',
+    title: 'Sausage, Cheddar & Egg Sandwich',
+    description:
+      'A savory sausage patty, fluffy cage-free eggs and aged Cheddar cheese on a perfectly toasted English muffin.',
+    price: '$4.95',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    title: 'Sausage, Cheddar & Egg Biscuit',
+    description:
+      'A savory sausage patty, fluffy eggs and aged Cheddar cheese served on a biscuit.',
+    price: '$3.95',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    title: 'Bacon, Gouda & Egg Sandwich',
+    description:
+      'Thick-cut bacon, fluffy eggs and aged Gouda cheese on a perfectly toasted English muffin.',
+    price: '$4.95',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    title: 'Double-Smoked Bacon, Cheddar & Egg Sandwich',
+    description:
+      'Thick-cut bacon, fluffy eggs and aged Cheddar cheese on a perfectly toasted English muffin.',
+    price: '$4.95',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    title: 'Reduced-Fat Turkey Bacon & Cage-Free Egg White Sandwich',
+    description:
+      'Sliced turkey bacon and egg whites with creamy melted cheese on an organic wheat English muffin.',
+    price: '$4.95',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    title: 'Sausage & Cheddar Breakfast Sandwich',
+    description:
+      'A savory sausage patty, fluffy eggs and aged Cheddar cheese served on a croissant.',
+    price: '$3.95',
+  },
+];
+
 export function App() {
   const navigate = useNavigate();
 
@@ -44,53 +89,7 @@ export function App() {
           <div>Review Carousel</div>
         </div>
         <hr />
-        <ProductList
-          title="Some text"
-          products={[
-            {
-              image: 'https://via.placeholder.com/150',
-              title: 'Sausage, Cheddar & Egg Sandwich',
-              description:
-                'A savory sausage patty, fluffy cage-free eggs and aged Cheddar cheese on a perfectly toasted English muffin.',
-              price: '$4.95',
-            },
-            {
-              image: 'https://via.placeholder.com/150',
-              title: 'Sausage, Cheddar & Egg Biscuit',
-              description:
-                'A savory sausage patty, fluffy eggs and aged Cheddar cheese served on a biscuit.',
-              price: '$3.95',
-            },
-            {
-              image: 'https://via.placeholder.com/150',
-              title: 'Bacon, Gouda & Egg Sandwich',
-              description:
-                'Thick-cut bacon, fluffy eggs and aged Gouda cheese on a perfectly toasted English muffin.',
-              price: '$4.95',
-            },
-            {
-              image: 'https://via.placeholder.com/150',
-              title: 'Double-Smoked Bacon, Cheddar & Egg Sandwich',
-              description:
-                'Thick-cut bacon, fluffy eggs and aged Cheddar cheese on a perfectly toasted English muffin.',
-              price: '$4.95',
-            },
-            {
-              image: 'https://via.placeholder.com/150',
-              title: 'Reduced-Fat Turkey Bacon & Cage-Free Egg White Sandwich',
-              description:
-                'Sliced turkey bacon and egg whites with creamy melted cheese on an organic wheat English muffin.',
-              price: '$4.95',
-            },
-            {
-              image: 'https://via.placeholder.com/150',
-              title: 'Sausage & Cheddar Breakfast Sandwich',
-              description:
-                'A savory sausage patty, fluffy eggs and aged Cheddar cheese served on a croissant.',
-              price: '$3.95',
-            },
-          ]}
-        />
+        <ProductList title="Some text" products={products} />
       </Layout>
     </Provider>
   );
