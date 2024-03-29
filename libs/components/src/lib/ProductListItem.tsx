@@ -1,6 +1,6 @@
 import { Text } from 'react-aria-components';
-import { Button } from './Button';
-import { Plus } from 'lucide-react';
+// import { Button } from './Button';
+// import { Plus } from 'lucide-react';
 import { Sheet } from './Sheet';
 
 export interface ProductListItemProps {
