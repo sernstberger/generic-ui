@@ -1,23 +1,17 @@
+import {
+  Button,
+  Menu,
+  MenuItem,
+  MenuTrigger,
+  Popover,
+  Separator,
+} from 'react-aria-components';
+import type { MenuItemProps } from 'react-aria-components';
+import RailIcon from '@spectrum-icons/workflow/Rail';
+
 export interface HeaderProps {
   // children: React.ReactNode;
 }
-
-const navItems = [
-  {
-    href: '#',
-    svgPath:
-      'm17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z',
-    label: 'Inbox',
-    count: 3,
-  },
-  {
-    href: '#',
-    svgPath:
-      'M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z',
-    label: 'Users',
-  },
-  // Add more items as needed
-];
 
 export const Header = ({}: HeaderProps) => {
   return (
@@ -69,59 +63,51 @@ export const Header = ({}: HeaderProps) => {
               </span>
             </a>
           </div>
+
           <div className="flex items-center">
-            <div className="flex items-center ms-3">
-              <div>
-                <button
-                  type="button"
-                  className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                  aria-expanded="false"
-                  data-dropdown-toggle="dropdown-user"
-                >
-                  <span className="sr-only">Open user menu</span>
-                  <img
-                    className="w-8 h-8 rounded-full"
-                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                    alt="user photo"
-                  />
-                </button>
-              </div>
-              <div
-                className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-                id="dropdown-user"
-              >
-                <div className="px-4 py-3" role="none">
-                  <p
-                    className="text-sm text-gray-900 dark:text-white"
-                    role="none"
-                  >
-                    Neil Sims
-                  </p>
-                  <p
-                    className="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
-                    role="none"
-                  >
-                    neil.sims@flowbite.com
-                  </p>
-                </div>
-                <ul className="py-1" role="none">
-                  {navItems.map((item, index) => (
-                    <li key={index}>
-                      <a
-                        href={item.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <MenuExample />
           </div>
         </div>
       </div>
     </nav>
   );
 };
+
+function MenuExample() {
+  return (
+    <MenuTrigger>
+      <Button
+        aria-label="Menu"
+        className="inline-flex items-center justify-center rounded-md bg-black bg-opacity-20 bg-clip-padding border border-white/20 px-3 py-2 text-white hover:bg-opacity-30 pressed:bg-opacity-40 transition-colors cursor-default outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+      >
+        {/* <RailIcon size="S" /> */}
+
+        <img
+          className="w-8 h-8 rounded-full"
+          src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+          alt="user photo"
+        />
+      </Button>
+      <Popover className="p-1 w-56 overflow-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 entering:animate-in entering:fade-in entering:zoom-in-95 exiting:animate-out exiting:fade-out exiting:zoom-out-95 fill-mode-forwards origin-top-left">
+        <Menu className="outline-none">
+          <ActionItem id="new">New…</ActionItem>
+          <ActionItem id="open">Open…</ActionItem>
+          <Separator className="bg-gray-300 h-[1px] mx-3 my-1" />
+          <ActionItem id="save">Save</ActionItem>
+          <ActionItem id="save-as">Save as…</ActionItem>
+          <Separator className="bg-gray-300 h-[1px] mx-3 my-1" />
+          <ActionItem id="print">Print…</ActionItem>
+        </Menu>
+      </Popover>
+    </MenuTrigger>
+  );
+}
+
+function ActionItem(props: MenuItemProps) {
+  return (
+    <MenuItem
+      {...props}
+      className="group flex w-full items-center rounded-md px-3 py-2 box-border outline-none cursor-default text-gray-900 focus:bg-violet-500 focus:text-white"
+    />
+  );
+}
