@@ -6,17 +6,18 @@ import {
 } from 'react-aria-components';
 import { twMerge } from 'tailwind-merge';
 import { tv } from 'tailwind-variants';
-import { focusRing, sheet } from './utils';
+import { focusRing, sheet, size } from './utils';
 
 export interface ButtonProps extends RACButtonProps {
   children: React.ReactNode;
   variant?: 'solid' | 'soft' | 'outlined' | 'plain';
   color?: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning';
   startIcon?: React.ReactNode;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 const button = tv({
-  extend: focusRing,
+  extend: [focusRing, size],
   base: twMerge(
     sheet.base,
     'px-5 py-2 text-sm text-center items-center transition rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] dark:shadow-none cursor-default flex'
@@ -25,6 +26,7 @@ const button = tv({
   variants: {
     variant: sheet.variants.variant,
     color: sheet.variants.color,
+    size: size.variants.size,
     startIcon: 'text-sm mr-2',
     // variant: {
     //   primary: 'bg-blue-600 hover:bg-blue-700 pressed:bg-blue-800 text-white',
@@ -42,6 +44,7 @@ const button = tv({
     variant: 'solid',
     color: 'neutral',
     startIcon: undefined,
+    size: 'md',
   },
 
   compoundVariants: sheet.compoundVariants,
@@ -56,6 +59,7 @@ export function Button(props: ButtonProps) {
           ...renderProps,
           variant: props.variant,
           color: props.color,
+          size: props.size,
           // startIcon: props.startIcon,
           className,
         })

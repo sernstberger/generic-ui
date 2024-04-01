@@ -12,6 +12,21 @@ export const focusRing = tv({
   },
 });
 
+export const size = tv({
+  base: '',
+  variants: {
+    size: {
+      sm: 'px-2 text-sm rounded',
+      md: 'px-4 text-base rounded-md',
+      lg: 'px-6 text-lg rounded-lg',
+      xl: 'px-8 text-xl rounded-xl',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
+
 interface Variant {
   variant: 'solid' | 'soft' | 'outlined' | 'plain';
   color: 'primary' | 'neutral' | 'destructive' | 'success' | 'warning';

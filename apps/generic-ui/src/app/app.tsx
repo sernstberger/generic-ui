@@ -66,7 +66,10 @@ export function App() {
           <SearchField />
         </div>
         <div>
+          <Button size="sm">Group order</Button>
           <Button>Group order</Button>
+          <Button size="lg">Group order</Button>
+          <Button size="xl">Group order</Button>
           <div>
             <div>$0.00</div>
             <div>
