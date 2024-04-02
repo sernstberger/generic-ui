@@ -36,10 +36,15 @@ export const NavItem = ({
             {count}
           </span>
         )}
-        {children && <ChevronDown className="w-5 h-5" aria-hidden="true" />}
+        {children && (
+          <ChevronDown
+            className={`w-5 h-5 transition ${open ? 'rotate-180' : 'rotate-0'}`}
+            aria-hidden="true"
+          />
+        )}
       </Link>
       {children && open && (
-        <ul id="dropdown-example" className="py-2 space-y-2">
+        <ul id="dropdown" className="py-2 space-y-2">
           {children.map((item, index) => {
             return (
               <li key={index}>
