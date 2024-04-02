@@ -1,8 +1,10 @@
-import { ChevronDown, Nut } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
+import { Link } from './Link';
+import { useState } from 'react';
 
 export interface NavItemProps {
   href: string;
-  svgPath: string;
+  Icon: string;
   label: string;
   count?: number;
   children?: Omit<NavItemProps, 'children'>[];
@@ -10,19 +12,23 @@ export interface NavItemProps {
 
 export const NavItem = ({
   href,
-  svgPath,
+  Icon,
   label,
   count,
   children,
 }: NavItemProps) => {
+  const [open, setOpen] = useState<boolean>(false);
   return (
     <li>
-      <a
-        href={href}
+      <Link
+        href={children ? '#' : href}
+        onPress={
+          children ? () => setOpen((prevState) => !prevState) : undefined
+        }
         className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
       >
         <div className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
-          <Nut />
+          {Icon}
         </div>
         <span className="flex-1 ms-3 whitespace-nowrap">{label}</span>
         {count && (
@@ -31,8 +37,8 @@ export const NavItem = ({
           </span>
         )}
         {children && <ChevronDown className="w-5 h-5" aria-hidden="true" />}
-      </a>
-      {children && (
+      </Link>
+      {children && open && (
         <ul id="dropdown-example" className="py-2 space-y-2">
           {children.map((item, index) => {
             return (
