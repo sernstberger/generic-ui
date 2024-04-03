@@ -1,9 +1,9 @@
 import { Text } from 'react-aria-components';
 // import { Button } from './Button';
 // import { Plus } from 'lucide-react';
-import { Sheet } from './Sheet';
+import { Sheet, SheetProps } from './Sheet';
 
-export interface ProductListItemProps {
+export interface ProductListItemProps extends SheetProps {
   image: string;
   title: string;
   description: string;
@@ -15,9 +15,10 @@ export const ProductListItem = ({
   title,
   description,
   price,
+  ...rest
 }: ProductListItemProps) => {
   return (
-    <Sheet variant="outlined" color="neutral">
+    <Sheet variant="outlined" color="neutral" {...rest}>
       <a href="https://adobe.com">
         <div className="-mx-2 -mt-2 relative">
           {/* TODO: Check for what I should use for alt text */}

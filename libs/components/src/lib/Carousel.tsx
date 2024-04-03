@@ -96,29 +96,14 @@ interface CarouselItemProps {
 }
 
 const CarouselItem = ({ item }: CarouselItemProps) => (
-  <div className="carousel-item text-center relative w-64 h-64 snap-start">
-    {/* <a
-      href="#"
-      className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
-      style={{ backgroundImage: `url(${item.image || ''})` }}
-    >
-      <img
-        src={item.image || ''}
-        alt={item.title}
-        className="w-full aspect-square hidden"
-      />
-    </a>
-    <a
-      href="#"
-      className="h-full w-full aspect-square block absolute top-0 left-0 transition-opacity duration-300 opacity-0 hover:opacity-100 bg-blue-800/75 z-10"
-    >
-      <h3 className="text-white py-6 px-3 mx-auto text-xl">{item.title}</h3>
-    </a> */}
-    <div className="h-full w-full aspect-square">
-      <img src={item.image || ''} alt={item.title} />
-      {item.title}
-    </div>
-  </div>
+  // <div className="carousel-item text-center relative w-64 h-64 aspect-square snap-center bg-yellow-400">
+  //   <img src={item.image || ''} alt={item.title} />
+  //   <h3 className="text-xl">{item.title}</h3>
+  // </div>
+  <ProductListItem
+    {...item}
+    className="carousel-item w-64 h-64 aspect-square snap-center"
+  />
 );
 
 interface CarouselButtonProps {
@@ -143,3 +128,143 @@ const CarouselButton = ({
     <span className="sr-only">{srText}</span>
   </button>
 );
+
+// import React from 'react';
+
+// export const Carousel = () => {
+//   const handleClick = (direction) => {
+//     const list = document.querySelector('.list');
+//     const item = document.querySelector('.item');
+//     const itemWidth = item.offsetWidth;
+
+//     if (direction === 'previous') {
+//       list.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+//     } else {
+//       list.scrollBy({ left: itemWidth, behavior: 'smooth' });
+//     }
+//   };
+
+//   return (
+//     <div className="list-wrapper" style={{ position: 'relative' }}>
+//       <ul
+//         className="list"
+//         style={{
+//           display: 'flex',
+//           gap: '8px',
+//           padding: '16px',
+//           listStyle: 'none',
+//           overflowX: 'scroll',
+//           scrollSnapType: 'x mandatory',
+//         }}
+//       >
+//         <li
+//           className="item"
+//           style={{
+//             flexShrink: 0,
+//             width: '80%',
+//             height: '90vh',
+//             backgroundColor: '#FFF',
+//             scrollSnapAlign: 'center',
+//           }}
+//         >
+//           <div
+//             className="content"
+//             style={{
+//               display: 'flex',
+//               alignItems: 'center',
+//               justifyContent: 'center',
+//               height: '100%',
+//               fontFamily: 'sans-serif',
+//               fontSize: '64px',
+//               fontWeight: 'bold',
+//             }}
+//           >
+//             Item 1
+//           </div>
+//         </li>
+//         <li
+//           className="item"
+//           style={{
+//             flexShrink: 0,
+//             width: '80%',
+//             height: '90vh',
+//             backgroundColor: '#FFF',
+//             scrollSnapAlign: 'center',
+//           }}
+//         >
+//           <div
+//             className="content"
+//             style={{
+//               display: 'flex',
+//               alignItems: 'center',
+//               justifyContent: 'center',
+//               height: '100%',
+//               fontFamily: 'sans-serif',
+//               fontSize: '64px',
+//               fontWeight: 'bold',
+//             }}
+//           >
+//             Item 2
+//           </div>
+//         </li>
+//         <li
+//           className="item"
+//           style={{
+//             flexShrink: 0,
+//             width: '80%',
+//             height: '90vh',
+//             backgroundColor: '#FFF',
+//             scrollSnapAlign: 'center',
+//           }}
+//         >
+//           <div
+//             className="content"
+//             style={{
+//               display: 'flex',
+//               alignItems: 'center',
+//               justifyContent: 'center',
+//               height: '100%',
+//               fontFamily: 'sans-serif',
+//               fontSize: '64px',
+//               fontWeight: 'bold',
+//             }}
+//           >
+//             Item 3
+//           </div>
+//         </li>
+//         {/* Add more items as needed */}
+//       </ul>
+//       <button
+//         onClick={() => handleClick('previous')}
+//         className="button button--previous"
+//         type="button"
+//         style={{
+//           position: 'absolute',
+//           top: '50%',
+//           width: '3rem',
+//           height: '3rem',
+//           transform: 'translateY(-50%)',
+//           left: '1.5rem',
+//           transform: 'rotate(180deg)',
+//         }}
+//       >
+//         ➜
+//       </button>
+//       <button
+//         onClick={() => handleClick('next')}
+//         className="button button--next"
+//         type="button"
+//         style={{
+//           position: 'absolute',
+//           top: '50%',
+//           width: '3rem',
+//           height: '3rem',
+//           transform: 'translateY(-50%)',
+//           right: '1.5rem',
+//         }}
+//       >
+//         ➜
+//       </button>
+//     </div>
+//   );
+// };
