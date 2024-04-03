@@ -1,5 +1,4 @@
 import { Text } from 'react-aria-components';
-import { Grid, repeat } from '@adobe/react-spectrum';
 import { ProductListItem, ProductListItemProps } from './ProductListItem';
 
 export interface ProductListProps {

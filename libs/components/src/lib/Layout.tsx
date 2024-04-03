@@ -1,4 +1,3 @@
-// import { View, Grid } from '@adobe/react-spectrum';
 import { NavItem } from './NavItem';
 import { Header } from './Header';
 

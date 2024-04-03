@@ -6,7 +6,6 @@ import {
   SearchField,
   Sheet,
 } from '@generic/components';
-import { View, Grid, repeat } from '@adobe/react-spectrum';
 import { Heart } from 'lucide-react';
 
 import { defaultTheme, Provider } from '@adobe/react-spectrum';
