@@ -1,10 +1,33 @@
 import { Heading, Text } from 'react-aria-components';
-import { Button, Layout, ProductList, SearchField } from '@generic/components';
+import {
+  Button,
+  Layout,
+  ProductList,
+  SearchField,
+  Sheet,
+} from '@generic/components';
 import { View, Grid, repeat } from '@adobe/react-spectrum';
 import { Heart } from 'lucide-react';
 
 import { defaultTheme, Provider } from '@adobe/react-spectrum';
 import { useNavigate } from 'react-router-dom';
+import { useSeparator } from 'react-aria';
+
+function Separator(props: any) {
+  const { separatorProps } = useSeparator(props);
+
+  return (
+    <div
+      {...separatorProps}
+      style={{
+        background: 'gray',
+        width: props.orientation === 'vertical' ? '1px' : '100%',
+        height: props.orientation === 'vertical' ? '100%' : '1px',
+        margin: props.orientation === 'vertical' ? '0 5px' : '5px 0',
+      }}
+    />
+  );
+}
 
 const products = [
   {
@@ -65,21 +88,29 @@ export function App() {
           <Heading level={1}>Starbucks</Heading>
           <SearchField />
         </div>
-        <div>
+
+        <Sheet
+          variant="outlined"
+          color="neutral"
+          className="flex justify-between"
+        >
+          <Button>Delivery / Pickup toggle</Button>
           <Button>Group order</Button>
-          <div>
-            <div>$0.00</div>
+          <div className="flex justify-between">
             <div>
-              Delivery fee
-              <span>tooltip</span>
+              <div>$0.00</div>
+              <div>
+                Delivery fee
+                <span>tooltip</span>
+              </div>
+            </div>
+            <Separator orientation="vertical" />
+            <div>
+              <p>21 min</p>
+              <p>Delivery time</p>
             </div>
           </div>
-          <div>divider</div>
-          <div>
-            <p>21 min</p>
-            <p>Delivery time</p>
-          </div>
-        </div>
+        </Sheet>
         <div>
           Featured items
           <div>Carousel</div>
@@ -88,7 +119,7 @@ export function App() {
           Reviews
           <div>Review Carousel</div>
         </div>
-        <hr />
+        <Separator />
         <ProductList title="Some text" products={products} />
       </Layout>
     </Provider>

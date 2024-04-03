@@ -70,7 +70,7 @@ export const Layout = ({ children }: LayoutProps) => {
     // </Grid>
 
     <div>
-      <Header>
+      <Header variant="solid" color="primary">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-start rtl:justify-end">
             <button
