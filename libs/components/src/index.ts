@@ -2,6 +2,7 @@ export * from './lib/AlertDialog';
 export * from './lib/Breadcrumbs';
 export * from './lib/Button';
 export * from './lib/Calendar';
+export * from './lib/Carousel';
 export * from './lib/Checkbox';
 export * from './lib/ComboBox';
 export * from './lib/DateField';
