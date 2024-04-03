@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ProductListItem, ProductListItemProps } from './ProductListItem';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, ReactNode } from 'react';
 
 export interface CarouselProps {
   title: string;
@@ -56,27 +56,24 @@ export const Carousel = ({ title, items }: CarouselProps) => {
 
   return (
     <div className="carousel my-12 mx-auto">
-      <h2 className="text-4xl leading-8 font-semibold mb-12 text-slate-700">
-        {title}
-      </h2>
+      <h2 className="text-xl">{title}</h2>
       <div className="relative overflow-hidden">
         <div className="flex justify-between absolute top left w-full h-full">
-          <button
+          <CarouselButton
             onClick={movePrev}
-            className="hover:bg-blue-900/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed z-10 p-0 m-0 transition-all ease-in-out duration-300"
             disabled={isDisabled('prev')}
+            srText="Prev"
           >
             <ChevronLeft className="w-10 h-10" />
-            <span className="sr-only">Prev</span>
-          </button>
-          <button
+          </CarouselButton>
+
+          <CarouselButton
             onClick={moveNext}
-            className="hover:bg-blue-900/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed z-10 p-0 m-0 transition-all ease-in-out duration-300"
             disabled={isDisabled('next')}
+            srText="Next"
           >
             <ChevronRight className="w-10 h-10" />
-            <span className="sr-only">Next</span>
-          </button>
+          </CarouselButton>
         </div>
         <div
           ref={carousel}
@@ -115,3 +112,26 @@ export const Carousel = ({ title, items }: CarouselProps) => {
     </div>
   );
 };
+
+interface CarouselButtonProps {
+  onClick: () => void;
+  disabled: boolean;
+  children: ReactNode;
+  srText: string;
+}
+
+const CarouselButton = ({
+  onClick,
+  disabled,
+  children,
+  srText,
+}: CarouselButtonProps) => (
+  <button
+    onClick={onClick}
+    className="hover:bg-blue-900/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed z-10 p-0 m-0 transition-all ease-in-out duration-300"
+    disabled={disabled}
+  >
+    {children}
+    <span className="sr-only">{srText}</span>
+  </button>
+);
