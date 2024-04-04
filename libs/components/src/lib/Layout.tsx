@@ -100,7 +100,7 @@ export const Layout = ({ children }: LayoutProps) => {
           </div>
 
           <div className="flex items-center">
-            <MenuExample />
+            <UserMenu />
           </div>
         </div>
       </Header>
@@ -118,7 +118,7 @@ export const Layout = ({ children }: LayoutProps) => {
   );
 };
 
-function MenuExample() {
+function UserMenu() {
   return (
     <MenuTrigger>
       <Button
@@ -132,7 +132,7 @@ function MenuExample() {
         <img
           className="w-8 h-8 rounded-full"
           src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-          alt="user photo"
+          alt="user"
         />
       </Button>
       <Popover className="p-1 w-56 overflow-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 entering:animate-in entering:fade-in entering:zoom-in-95 exiting:animate-out exiting:fade-out exiting:zoom-out-95 fill-mode-forwards origin-top-left">

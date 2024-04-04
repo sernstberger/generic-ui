@@ -1,8 +1,9 @@
-import { Heading } from 'react-aria-components';
+import { Heading, Link } from 'react-aria-components';
 import {
   Button,
   Carousel,
   Layout,
+  Modal,
   ProductList,
   SearchField,
   Sheet,
@@ -12,6 +13,7 @@ import { Heart } from 'lucide-react';
 import { defaultTheme, Provider } from '@adobe/react-spectrum';
 import { useNavigate } from 'react-router-dom';
 import { useSeparator } from 'react-aria';
+import { useState } from 'react';
 
 function Separator(props: any) {
   const { separatorProps } = useSeparator(props);
@@ -76,6 +78,7 @@ const products = [
 
 export function App() {
   const navigate = useNavigate();
+  const [isOpen, setOpen] = useState(false);
 
   return (
     <Provider theme={defaultTheme} colorScheme="light" router={{ navigate }}>
@@ -88,6 +91,11 @@ export function App() {
           <Heading level={1}>Starbucks</Heading>
           <SearchField />
         </div>
+
+        <Button onPress={() => setOpen(true)}>Open dialog</Button>
+        <Modal isDismissable isOpen={isOpen} onOpenChange={setOpen}>
+          asdfasfasd
+        </Modal>
 
         <Sheet
           variant="outlined"
